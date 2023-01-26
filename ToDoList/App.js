@@ -1,9 +1,18 @@
 import React, { useState } from "react"
 import { StyleSheet, Text, View, Button, FlatList} from "react-native"
+
+import { useFonts } from "expo-font"
+
+import Header from "./src/components/Header"
 import Modal from "./src/components/Modal"
 import AddItem from "./src/components/AddItem"
 
 export default function App() {
+
+  const [loaded] = useFonts({
+    AcmeScriptRegular: require("./src/assets/fonts/Acme-Regular.ttf"),
+  })
+
   const [textItem, setTextItem] = useState("")
   const [list, setList] = useState("")
   const [itemSelected, setItemSelected] = useState("")
@@ -54,10 +63,17 @@ export default function App() {
     </View>
   )
 
+  if (!loaded) {
+    return null
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.titleContainer}>
-        <Text style={styles.title}>To do List</Text>
+      <Header
+        title={"To do List"}
+        newStyles={{ fontFamily: "AcmeScriptRegular" }}
+      />
         <AddItem
           onChange={onHandleChangeItem}
           textValue={textItem}
@@ -106,7 +122,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    //backgroundColor: "#E7EAF2",A
+    backgroundColor: "#E7EAF2",
   },
   titleContainer: {
     height: 200,
