@@ -33,7 +33,7 @@ return (
 
         <Text style={styles.completedTitle}>Completed tasks' List</Text>
             
-            <Button title="Go to List" onPress={() => onHandleToDo(confirm)} />
+            <Button title="Go to the to do List" onPress={() => onHandleToDo(confirm)} />
     </View>
 )}
 
@@ -52,5 +52,11 @@ const styles = StyleSheet.create({
         fontWeight: "700",
         color: "#3eaa91",
         paddingHorizontal: 30,
+      },
+      title: {
+        marginBottom: 20,
+        fontSize: 40,
+        fontWeight: "700",
+        color: "#3eaa91",
       },
 })

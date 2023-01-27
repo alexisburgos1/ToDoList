@@ -42,8 +42,7 @@ const ToDoList = ({onHandleComplete}) => {
     }
     const handleModal = item => {
         setItemSelected(item)
-        setModalVisible(true)
-        
+        setModalVisible(true) 
     }
     const onHandleDelete = item => {
         console.log(item)
@@ -63,6 +62,11 @@ const ToDoList = ({onHandleComplete}) => {
         </View>
     )
 
+    const completedFunction = item => {
+      setItemSelected(item)
+      setModalVisible(true) 
+    }
+
     if (!loaded) {
         return null
       }
@@ -75,27 +79,16 @@ const ToDoList = ({onHandleComplete}) => {
                     newStyles={{ fontFamily: "AcmeScriptRegular" }}
                 />
             </View>
-            <AddItem
-            onChange={onHandleChangeItem}
-            textValue={textItem}
-            onAddItem={addItem}
-            />
-
+            <AddItem onChange={onHandleChangeItem} textValue={textItem} onAddItem={addItem}/>
             <Text style={styles.pendingTitle}>Pending tasks</Text>
-        
-        
-            <View style={styles.listContainer}>
-            
-            
-            <FlatList
-            data={list}
-            renderItem={renderItem}
-            keyExtractor={item => item}
-            />
-            </View>
 
-            
-            
+            <View style={styles.listContainer}>
+              <FlatList
+              data={list}
+              renderItem={renderItem}
+              keyExtractor={item => item}
+              />
+            </View>
             <Button title="Go to the List of Completed tasks" color={"#3eaa91"} onPress={() => onHandleComplete(confirmed)} />
             
 
@@ -122,7 +115,7 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         fontSize: 40,
         fontWeight: "700",
-        color: "#2196f3",
+        color: "black",
       },
       pendingTitle: {
         marginTop: 50,
