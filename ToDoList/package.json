@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@react-native-clipboard/clipboard": "github:react-native-community/clipboard",
+    "@react-navigation/native": "^6.1.2",
+    "@react-navigation/native-stack": "^6.9.8",
     "clipboard": "^2.0.11",
     "expo": "~47.0.9",
     "expo-status-bar": "~1.4.2",
