@@ -94,9 +94,9 @@ const ToDoList = ({onHandleComplete}) => {
             />
             </View>
 
-            <Text style={styles.completedTitle}>Completed tasks' List</Text>
             
-            <Button title="Go to List" onPress={() => onHandleComplete(confirmed)} />
+            
+            <Button title="Go to the List of Completed tasks" color={"#3eaa91"} onPress={() => onHandleComplete(confirmed)} />
             
 
             <Modal
